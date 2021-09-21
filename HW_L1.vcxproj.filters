@@ -18,12 +18,12 @@
     <ClCompile Include="HW_L1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MyLib.cpp">
+    <ClCompile Include="Task1.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyLib.h">
+    <ClInclude Include="Task1.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
