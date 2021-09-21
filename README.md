@@ -87,4 +87,8 @@
         cout << book;
     }
 
-У вас должен получиться следующий вывод: см. скрины
+У вас должен получиться следующий вывод:
+
+  ![Alt text](/Screenshot_1.png?raw=true "Result 1")
+
+  ![Alt text](/Screenshot_2.png?raw=true "Result 2")
