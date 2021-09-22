@@ -10,5 +10,8 @@ private:
 	std::optional<uint16_t> extension;
 
 public:
+	PhoneNumber(uint16_t couC, uint16_t citC, const std::string& num, const std::optional<uint16_t>& ext) : countryCode(couC), city—ode(citC), number(num), extension(ext)
+	{};
+
 	friend std::ostream& operator<< (std::ostream& out, const PhoneNumber& phNum);
 };
