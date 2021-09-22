@@ -1,4 +1,5 @@
 #include"Task1.h"
+#include<tuple>
 
 
 std::ostream& operator<< (std::ostream& out, const Person& person)
@@ -14,8 +15,11 @@ std::ostream& operator<< (std::ostream& out, const Person& person)
 
 bool operator<(const Person& persL, const Person& persR)
 {
-	if (persL.surname != persR.surname) return persL.surname < persR.surname;
-	if (persL.first_name != persR.first_name) return persL.first_name < persR.first_name;
+	return std::tie(persL.surname, persL.first_name, persL.patronymic) < std::tie(persR.surname, persR.first_name, persR.patronymic);
+	/*if (persL.surname != persR.surname) 
+		return persL.surname < persR.surname;
+	if (persL.first_name != persR.first_name) 
+		return persL.first_name < persR.first_name;
 	if (persL.patronymic.has_value())
 	{
 		if (persR.patronymic.has_value())
@@ -24,16 +28,19 @@ bool operator<(const Person& persL, const Person& persR)
 		}
 		else return false;
 	}
-	else return true;
+	else return true;*/
 }
 
 bool operator==(const Person& persL, const Person& persR)
 {
-	if (persL.surname != persR.surname) return false;
-	if (persL.first_name != persR.first_name) return false;
+	return std::tie(persL.surname, persL.first_name, persL.patronymic) == std::tie(persR.surname, persR.first_name, persR.patronymic);
+	/*if (persL.surname != persR.surname) 
+		return false;
+	if (persL.first_name != persR.first_name) 
+		return false;
 	if (!(persL.patronymic.has_value() ^ persR.patronymic.has_value()))
 	{
 		if (persL.patronymic.has_value()) return persL.patronymic.value() == persR.patronymic.value();
 	}
-	return false;
+	return false;*/
 }
