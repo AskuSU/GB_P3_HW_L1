@@ -12,4 +12,6 @@ private:
 
 public:
 	PhoneBook(std::ifstream& fstr);
+
+	friend std::ostream& operator<< (std::ostream& out, PhoneBook phBook);
 };

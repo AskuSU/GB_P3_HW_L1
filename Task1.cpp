@@ -1,15 +1,19 @@
-#include"Task1.h"
-#include<tuple>
+#include "Task1.h"
+#include <tuple>
+#include <iomanip>
 
 
 std::ostream& operator<< (std::ostream& out, const Person& person)
 {
-	out << person.surname << " " << person.first_name;
+	out << std::setw(12) << person.surname << " " << std::setw(9) << person.first_name;
 	if (person.patronymic.has_value())
 	{
-		out << " " << person.patronymic.value();
+		out << " " << std::setw(14) << person.patronymic.value();
 	}
-	out << std::endl;
+	else
+	{
+		out << "   " << std::setw(15);
+	}
 	return out;
 }
 

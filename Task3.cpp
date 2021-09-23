@@ -12,7 +12,7 @@ PhoneBook::PhoneBook(std::ifstream& fstr)
 	
 	if (fstr.is_open())
 	{
-		while (fstr >> surname >> first_name >> patronymic.value() >> countryCode >> city—ode >> number >> ext.value())
+		while (fstr >> surname >> first_name >> patronymic.emplace() >> countryCode >> city—ode >> number >> ext.emplace())
 		{
 			if (patronymic.has_value())
 				if (patronymic.value() == "-")
@@ -22,7 +22,7 @@ PhoneBook::PhoneBook(std::ifstream& fstr)
 				if (ext.value() == "-")
 					extension = std::nullopt;
 				else
-					extension.value() = std::stoi(ext.value());
+					extension.emplace() = std::stoi(ext.value());
 
 			PhoneNumber phoneNum(countryCode, city—ode, number, extension);
 
@@ -30,4 +30,13 @@ PhoneBook::PhoneBook(std::ifstream& fstr)
 		}
 	}
 	fstr.close();
+}
+
+std::ostream& operator<<(std::ostream& out, PhoneBook phBook)
+{	
+	for (auto& rec : phBook.record)
+	{
+		out << rec.first << "   " << rec.second << std::endl;
+	}
+	return out;
 }
