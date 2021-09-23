@@ -65,8 +65,14 @@ std::tuple<std::string, PhoneNumber> PhoneBook::GetPhoneNumber(const std::string
 	return std::make_tuple(res, number);
 }
 
-void PhoneBook::ChangePhoneNumber(const Person& person, const PhoneNumber& phNum)
+void PhoneBook::ChangePhoneNumber(const Person& person, const PhoneNumber& newPhNum)
 {
+	auto find_rec = std::find_if(record.begin(), record.end(), 
+		[&person](const auto& rec)
+		{
+			return rec.first == person;
+		});
+	if (find_rec != record.end()) find_rec->second = newPhNum;
 }
 
 std::ostream& operator<<(std::ostream& out, PhoneBook phBook)

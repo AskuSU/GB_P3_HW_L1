@@ -41,12 +41,12 @@ int main()
     print_phone_number("Ivanov");
     print_phone_number("Petrov");
 
-    //std::cout << "----ChangePhoneNumber----" << std::endl;
-    //book.ChangePhoneNumber(Person{ "Kotov", "Vasilii", "Eliseevich" },
-    //    PhoneNumber{ 7, 123, "15344458", std::nullopt });
-    //book.ChangePhoneNumber(Person{ "Mironova", "Margarita", "Vladimirovna" },
-    //    PhoneNumber{ 16, 465, "9155448", 13 });
-    //std::cout << book;
+    std::cout << "----ChangePhoneNumber----" << std::endl;
+    book.ChangePhoneNumber(Person{ "Kotov", "Vasilii", "Eliseevich" },
+        PhoneNumber{ 7, 123, "15344458", std::nullopt });
+    book.ChangePhoneNumber(Person{ "Mironova", "Margarita", "Vladimirovna" },
+        PhoneNumber{ 16, 465, "9155448", 13 });
+    std::cout << book;
 
     return 0;
 }
