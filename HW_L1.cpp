@@ -24,22 +24,22 @@ int main()
     book.SortByName();
     std::cout << book;
 
-    //std::cout << "-----GetPhoneNumber-----" << std::endl;
+    std::cout << "-----GetPhoneNumber-----" << std::endl;
 
-    //// лямбда функция, которая принимает фамилию и выводит номер телефона этого человека, либо строку с ошибкой 
-    //auto print_phone_number = [&book](const string& surname) {
-    //    std::cout << surname << "\t";
-    //    auto answer = book.GetPhoneNumber(surname);
-    //    if (get<0>(answer).empty())
-    //        std::cout << get<1>(answer);
-    //    else
-    //        std::cout << get<0>(answer);
-    //    cout << std::endl;
-    //};
+    // лямбда функция, которая принимает фамилию и выводит номер телефона этого человека, либо строку с ошибкой 
+    auto print_phone_number = [&book](const std::string& surname) {
+        std::cout << surname << "\t";
+        auto answer = book.GetPhoneNumber(surname);
+        if (std::get<0>(answer).empty())
+            std::cout << std::get<1>(answer);
+        else
+            std::cout << std::get<0>(answer);
+        std::cout << std::endl;
+    };
 
-    //// вызовы лямбды
-    //print_phone_number("Ivanov");
-    //print_phone_number("Petrov");
+    // вызовы лямбды
+    print_phone_number("Ivanov");
+    print_phone_number("Petrov");
 
     //std::cout << "----ChangePhoneNumber----" << std::endl;
     //book.ChangePhoneNumber(Person{ "Kotov", "Vasilii", "Eliseevich" },

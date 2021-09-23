@@ -1,6 +1,7 @@
 #include "Task3.h"
 #include <string>
 #include <algorithm>
+#include <iomanip>
 
 PhoneBook::PhoneBook(std::ifstream& fstr)
 {
@@ -45,11 +46,34 @@ void PhoneBook::SortByPhone()
 	std::sort(record.begin(), record.end(), less);
 }
 
+std::tuple<std::string, PhoneNumber> PhoneBook::GetPhoneNumber(const std::string& surname)
+{
+	PhoneNumber number;
+	std::string res = "";
+	uint8_t count = 0;
+	std::for_each(record.begin(), record.end(),
+		[&](const auto& rec)
+		{
+			if (rec.first.getSurname() == surname)
+			{
+				number = rec.second;
+				count++;
+			}
+		});
+	if (count == 0) res = "not found";
+	else if (count > 1) res = "found more than 1";
+	return std::make_tuple(res, number);
+}
+
+void PhoneBook::ChangePhoneNumber(const Person& person, const PhoneNumber& phNum)
+{
+}
+
 std::ostream& operator<<(std::ostream& out, PhoneBook phBook)
 {	
-	for (auto& rec : phBook.record)
+	for (const auto& [person, number] : phBook.record)
 	{
-		out << rec.first << "   " << rec.second << std::endl;
+		out << person << std::setw(5) << number << std::endl;
 	}
 	return out;
 }

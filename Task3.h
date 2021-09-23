@@ -15,6 +15,8 @@ public:
 
 	void SortByName();
 	void SortByPhone();
+	std::tuple<std::string, PhoneNumber> GetPhoneNumber(const std::string& surname);
+	void ChangePhoneNumber(const Person& person, const PhoneNumber& phNum);
 
 	friend std::ostream& operator<< (std::ostream& out, PhoneBook phBook);
 };
