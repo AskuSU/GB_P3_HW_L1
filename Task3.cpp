@@ -39,6 +39,12 @@ void PhoneBook::SortByName()
 	std::sort(record.begin(), record.end(), less);
 }
 
+void PhoneBook::SortByPhone()
+{
+	Less less(true);
+	std::sort(record.begin(), record.end(), less);
+}
+
 std::ostream& operator<<(std::ostream& out, PhoneBook phBook)
 {	
 	for (auto& rec : phBook.record)

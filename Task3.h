@@ -14,16 +14,23 @@ public:
 	PhoneBook(std::ifstream& fstr);
 
 	void SortByName();
+	void SortByPhone();
 
 	friend std::ostream& operator<< (std::ostream& out, PhoneBook phBook);
 };
 
 class Less
 {
+private:
+	bool sortByPhone;
+
 public:
+	Less(bool flag = false) : sortByPhone(flag)
+	{};
+
 	bool operator() (const std::pair<Person, PhoneNumber>& left, const std::pair<Person, PhoneNumber>& right)
 	{
-		if (left.first == right.first)
+		if (left.first == right.first || sortByPhone)
 			return left.second < right.second;
 		else return left.first < right.first;
 	}

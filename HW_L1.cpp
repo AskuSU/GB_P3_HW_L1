@@ -16,9 +16,9 @@ int main()
     PhoneBook book(file);
     std::cout << book;
 
-    //std::cout << "------SortByPhone-------" << std::endl;
-    //book.SortByPhone();
-    //std::cout << book;
+    std::cout << "------SortByPhone-------" << std::endl;
+    book.SortByPhone();
+    std::cout << book;
 
     std::cout << "------SortByName--------" << std::endl;
     book.SortByName();
