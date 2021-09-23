@@ -1,5 +1,6 @@
-#include"Task3.h"
-#include<string>
+#include "Task3.h"
+#include <string>
+#include <algorithm>
 
 PhoneBook::PhoneBook(std::ifstream& fstr)
 {
@@ -30,6 +31,12 @@ PhoneBook::PhoneBook(std::ifstream& fstr)
 		}
 	}
 	fstr.close();
+}
+
+void PhoneBook::SortByName()
+{
+	Less less;
+	std::sort(record.begin(), record.end(), less);
 }
 
 std::ostream& operator<<(std::ostream& out, PhoneBook phBook)

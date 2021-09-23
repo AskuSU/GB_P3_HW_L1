@@ -20,9 +20,9 @@ int main()
     //book.SortByPhone();
     //std::cout << book;
 
-    //std::cout << "------SortByName--------" << std::endl;
-    //book.SortByName();
-    //std::cout << book;
+    std::cout << "------SortByName--------" << std::endl;
+    book.SortByName();
+    std::cout << book;
 
     //std::cout << "-----GetPhoneNumber-----" << std::endl;
 
